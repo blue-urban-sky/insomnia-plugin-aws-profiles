@@ -41,13 +41,13 @@ export const templateTags = [
         ],
         async run(_context: object, profile: string, attribute: Attribute) {
             const loadAwsCred = await loadSharedConfigFiles()
-            if(!loadAwsCred.credentialsFile[profile]) return `${profile} not found`
-            // @ts-ignore
-            if(!loadAwsCred.credentialsFile[profile][attribute]) return `${attribute} not found for ${profile}`
+            if(!loadAwsCred.credentialsFile) return `credentials not found`
+            const selectedProfile = loadAwsCred.credentialsFile[profile]
 
-            // @ts-ignore
-            return loadAwsCred.credentialsFile[profile][attribute];
+            if(!selectedProfile) return `${profile} not found`
+            if(!selectedProfile[attribute]) return `${attribute} not found for ${profile}`
 
+            return selectedProfile[attribute];
         },
     }
 ];

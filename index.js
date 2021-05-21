@@ -43,11 +43,14 @@ exports.templateTags = [
         ],
         async run(_context, profile, attribute) {
             const loadAwsCred = await shared_ini_file_loader_1.loadSharedConfigFiles();
-            if (!loadAwsCred.credentialsFile[profile])
+            if (!loadAwsCred.credentialsFile)
+                return `credentials not found`;
+            const selectedProfile = loadAwsCred.credentialsFile[profile];
+            if (!selectedProfile)
                 return `${profile} not found`;
-            if (!loadAwsCred.credentialsFile[profile][attribute])
+            if (!selectedProfile[attribute])
                 return `${attribute} not found for ${profile}`;
-            return loadAwsCred.credentialsFile[profile][attribute];
+            return selectedProfile[attribute];
         },
     }
 ];
