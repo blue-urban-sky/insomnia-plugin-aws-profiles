@@ -1,13 +1,13 @@
 {
   "name": "insomnia-plugin-aws-profiles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Insomnia plugin to retrieve aws credentials for use with IAM authentication",
   "main": "index.js",
   "homepage": "https://github.com/blue-urban-sky/insomnia-plugin-aws-profiles",
   "insomnia": {
     "name": "insomnia-plugin-aws-profiles",
     "displayName": "AWS Profiles Plugin",
-    "description": "Sets vars for ASW auth from the credential file",
+    "description": "Sets vars for AWS auth from the credential file",
     "publisher": {
       "name": "Sam Lyon",
       "icon": "https://avatars.githubusercontent.com/u/3660826?v=4"
